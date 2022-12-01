@@ -10,18 +10,20 @@ function writePassword() {
 
 }
 
- function generatePassword() {
-    var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    var passwordLength = 8;
-    var password = "";
- for (var i = 0; i <= passwordLength; i++) {
-   var randomNumber = Math.floor(Math.random() * chars.length);
-   password += chars.substring(randomNumber, randomNumber +1);
+function generatePassword() {
+  var length = 8;
+  var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
+  var passkey = "";
+  for (var i = 0, n = charset.length; i < length; ++i) {
+      passkey += charset.charAt(Math.floor(Math.random() * n));
   }
-        document.querySelector("password").value = password;
- }
+  return passkey;
+}
 
 
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
+c
